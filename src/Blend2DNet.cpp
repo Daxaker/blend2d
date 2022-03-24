@@ -25,8 +25,6 @@ public:
   virtual BLResult CubicTo(double x1, double y1, double x2, double y2, double x3, double y3) override {
     return path.cubicTo(x1, y1, x2, y2, x3, y3);
   }
-protected:
-  BLPath path;
 private:
   friend class Blend2DNet_BLContextImpl;
 };
@@ -80,8 +78,7 @@ public:
   }
   virtual BLResult FillPath(Blend2DNet_BLPath* path) override
   {
-    auto pathImpl = dynamic_cast<Blend2DNet_BLPathImpl*>(path);
-    return context.fillPath(pathImpl->path);
+    return context.fillPath(path->path);
   }
   virtual BLResult End() override {
     return context.end();

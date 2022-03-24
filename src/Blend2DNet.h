@@ -29,6 +29,7 @@ class Blend2DNet_BLPath
 public:
   virtual BLResult MoveTo(double, double) = 0;
   virtual BLResult CubicTo(double x1, double y1, double x2, double y2, double x3, double y3) = 0;
+  BLPath path;
 };
 
 class Blend2DNet_BLImage
